@@ -1,6 +1,7 @@
 [package]
 name = "pre-commit-hooks"
 version = "0.3.1"
+edition = "2021"
 authors = ["Joe Grund <grundjoseph@gmail.com>", "Seto Elkahfi <setoelkahfi@gmail.com>"]
 build = "build.rs"
 description = "Run cargo fmt, clippy or any command as a git pre-commit hook, configured in Cargo.toml. Works with Cargo workspaces."

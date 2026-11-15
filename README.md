@@ -1,29 +1,48 @@
-# pre-commit-hooks
+<!-- LOGO -->
+<h1>
+<p align="center">
+  <img src="https://avatars.githubusercontent.com/u/89791739?s=200&v=4" alt="smbCloud Logo" width="128">
+  <br>pre-commit-hooks
+</h1>
+  <p align="center">
+    Run cargo fmt, clippy or any command as a git pre-commit hook, configured in Cargo.toml.
+    <br />
+    <br />
+    <a href="https://smbcloud.xyz/">Website</a>
+    ·
+    <a href="https://github.com/smbcloudXYZ/pre-commit-hooks">Source</a>
+    ·
+    <a href="https://crates.io/crates/pre-commit-hooks">crates.io</a>
+  </p>
+  <p align="center">
+    <a href="https://crates.io/crates/pre-commit-hooks"><img alt="Crates.io" src="https://img.shields.io/crates/v/pre-commit-hooks"></a>
+    <a href="https://github.com/smbcloudXYZ/pre-commit-hooks/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/smbcloudXYZ/pre-commit-hooks"></a>
+  </p>
 
-Reads hooks metadata from `Cargo.toml` and executes on commit. A fork of the unmaintained [pre-commit](https://github.com/rustation/pre-commit).
+pre-commit-hooks reads hook commands from `Cargo.toml` and runs them on `git commit`. It works with Cargo workspaces. It is a fork of the unmaintained [pre-commit](https://github.com/rustation/pre-commit).
 
+## Install
 
-### Installing
-
-```
+```toml
 [dependencies]
 pre-commit-hooks = "0.3"
 ```
 
-For a workspace-based setup, one only need to add it in one of the package dependency, usually the main package (if any). This is because the pre-commit applies to the whole project.
+In a workspace, add it to one package, usually the main one. The hook applies to the whole repository.
 
-### Usage
+## Usage
 
-Add a table like the following to your root `Cargo.toml`:
+Add a table like this to your root `Cargo.toml`:
 
-```
+```toml
 [package.metadata.precommit]
 fmt = "cargo fmt"
 sort = "cargo sort"
 ```
 
-Or, if you're using workspace:
-```
+For a workspace:
+
+```toml
 [workspace.metadata.precommit]
 fmt = "cargo fmt"
 sort = "cargo sort -w"
@@ -31,12 +50,12 @@ sort = "cargo sort -w"
 
 Then run:
 
-```
-$ cargo clean
-$ cargo build
+```bash
+cargo clean
+cargo build
 ```
 
-You should now have a `pre-commit` file in your `.git/hooks` that will run the listed pre-commit entries.
+You now have a `pre-commit` file in `.git/hooks` that runs the listed entries.
 
 ## FAQ
 
@@ -49,14 +68,18 @@ Yes. Use `[workspace.metadata.precommit]` in the root `Cargo.toml` and add the c
 **Is pre-commit-hooks maintained?**
 Yes, by [smbCloud](https://smbcloud.xyz). Releases are small and focus on keeping it working with current Cargo.
 
-## Maintained by smbCloud
+## About smbCloud
 
-pre-commit-hooks is maintained by Seto Elkahfi at [smbCloud](https://smbcloud.xyz), a cloud platform for small and medium businesses with Deploy, Auth, Mail and GresIQ. Enterprise power at startup velocity.
-
-- Source: [smbcloudXYZ/pre-commit-hooks](https://github.com/smbcloudXYZ/pre-commit-hooks)
-- smbCloud CLI: `cargo install smbcloud-cli`
+smbCloud is a cloud platform for small and medium businesses with Deploy, Auth, Mail and GresIQ. Enterprise power at startup velocity. Read the [docs](https://smbcloud.xyz/posts) or install the CLI with `cargo install smbcloud-cli`.
 
 ## Credit
 
+Derived from [rustation/pre-commit](https://github.com/rustation/pre-commit) by Joe Grund. The `find_crate_root` function is refactored with the help of [emilgardis](https://github.com/emilgardis).
 
-The `find_crate_root` function is refactored with the help of [emilgardis](https://github.com/emilgardis).
+## License
+
+[MIT](https://github.com/smbcloudXYZ/pre-commit-hooks/blob/main/LICENSE)
+
+## Copyright
+
+© 2026 Seto Elkahfi ([smbCloud](https://smbcloud.xyz)). Distributed by [Splitfire AB](https://5mb.app).
