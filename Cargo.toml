@@ -1,11 +1,14 @@
 [package]
 name = "pre-commit-hooks"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Joe Grund <grundjoseph@gmail.com>", "Seto Elkahfi <setoelkahfi@gmail.com>"]
 build = "build.rs"
-description = "Reads hooks metadata from Cargo.toml and executes on commit. Works with workspace format."
+description = "Run cargo fmt, clippy or any command as a git pre-commit hook, configured in Cargo.toml. Works with Cargo workspaces."
 license = "MIT"
-repository = "https://github.com/nentgroup/pre-commit-hooks"
+repository = "https://github.com/smbcloudXYZ/pre-commit-hooks"
+homepage = "https://smbcloud.xyz"
+keywords = ["git", "pre-commit", "hooks", "cargo", "workspace"]
+categories = ["development-tools", "development-tools::build-utils"]
 readme = "README.md"
 
 [package.metadata.precommit]
